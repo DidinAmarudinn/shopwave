@@ -3,57 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShopWave — Colorful Demo Store</title>
-  <meta name="description" content="Browse our vibrant collection of demo products at ShopWave.">
+  <title>ShopWave — Curated Products You'll Love</title>
+  <meta name="description" content="Discover thoughtfully curated products at ShopWave. Browse our collection and find pieces you'll love for years to come.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <a href="index.html" class="logo">ShopWave</a>
-      <nav>
-        <ul class="site-nav">
-          <li><a href="index.html">Shop</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-        </ul>
-      </nav>
+      <div class="site-nav-wrap">
+        <nav>
+          <ul class="site-nav">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html#discovery">Shop</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="icon-btn" id="header-search" aria-label="Search products">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <a href="#" class="btn btn--outline btn--demo" aria-disabled="true">Login</a>
+        <a href="#" class="btn btn--primary btn--demo" aria-disabled="true">Sign Up</a>
+      </div>
     </div>
   </header>
 
   <section class="hero">
-    <h1>Welcome to ShopWave</h1>
-    <p>Discover our colorful collection of demo products — browse, explore, and enjoy!</p>
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <h1 class="hero__title heading-serif">Products you'll love for years to come</h1>
+          <p class="hero__desc">Discover thoughtfully curated pieces designed for everyday living. Quality craftsmanship meets timeless style in every item we offer.</p>
+          <div class="hero__actions">
+            <a href="#discovery" class="btn btn--primary">Explore The Collection <span aria-hidden="true">→</span></a>
+            <a href="#categories" class="btn btn--text">View Our Story <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero__stats">
+            <div>
+              <div class="stat__value">+20k</div>
+              <div class="stat__label">Items Shipped</div>
+            </div>
+            <div>
+              <div class="stat__value">98%</div>
+              <div class="stat__label">Satisfaction</div>
+            </div>
+            <div>
+              <div class="stat__value">+4k</div>
+              <div class="stat__label">Happy Customers</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__collage" id="hero-collage">
+          <div class="hero__collage-main">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=800&fit=crop" alt="Featured product" loading="eager">
+          </div>
+          <div class="hero__collage-side">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop" alt="Featured product" loading="eager">
+            <img src="https://images.unsplash.com/photo-1615066391307-1bfc4c1ea5f2?w=600&h=400&fit=crop" alt="Featured product" loading="eager">
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <div class="search-section">
-    <div class="search-bar">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" id="search" placeholder="Search by product name or SKU…" aria-label="Search products">
+  <section class="section" id="categories">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <h2 class="heading-serif">Find Your Signature Style</h2>
+        <p>Explore curated collections tailored to every room and every mood.</p>
+      </div>
+      <div class="category-grid" id="category-grid"></div>
     </div>
-  </div>
+  </section>
 
-  <main class="main-content">
-    <p class="product-count" id="product-count"></p>
-    <div class="product-grid" id="product-grid"></div>
-    <div class="empty-state" id="empty-state" hidden>
-      <p>No products match your search. Try a different keyword.</p>
+  <section class="section" id="discovery">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="heading-serif">Discovery &amp; Inspiration</h2>
+        <p>Find your favorite collection from our handpicked selection.</p>
+      </div>
+      <div class="discovery-toolbar">
+        <div class="filter-pills" id="filter-pills"></div>
+        <div class="search-bar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="search" placeholder="Search by name or SKU…" aria-label="Search products">
+        </div>
+      </div>
+      <p class="product-count" id="product-count"></p>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <p>No products match your search. Try a different keyword or filter.</p>
+      </div>
     </div>
-  </main>
+  </section>
 
   <footer class="site-footer">
-    <div class="site-footer__links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms &amp; Conditions</a>
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-footer__brand">ShopWave</div>
+          <p class="site-footer__desc">A demo store showcasing curated products with timeless appeal. Quality pieces for every corner of your life.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#discovery">Shop</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@shopwave-demo.example">hello@shopwave-demo.example</a></li>
+            <li>Mon – Fri, 9am – 6pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; 2026 ShopWave. All rights reserved.</p>
+        <p class="site-footer__demo">This is a demo store with dummy product data for demonstration purposes only.</p>
+      </div>
     </div>
-    <p>&copy; 2026 ShopWave. All rights reserved.</p>
-    <p class="site-footer__demo">This is a demo store with dummy product data for demonstration purposes only.</p>
   </footer>
 
   <script src="js/csv.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/app.js"></script>
   <script
     src="https://widget.ganes-saas-retail.ewideplus.com/v1/loader.js"

@@ -6,70 +6,109 @@
   <title>Privacy Policy — ShopWave</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <a href="index.html" class="logo">ShopWave</a>
-      <nav>
-        <ul class="site-nav">
-          <li><a href="index.html">Shop</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-        </ul>
-      </nav>
+      <div class="site-nav-wrap">
+        <nav>
+          <ul class="site-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#discovery">Shop</a></li>
+            <li><a href="privacy.html" class="active">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a href="index.html#discovery" class="icon-btn" aria-label="Search products">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+        <a href="#" class="btn btn--outline btn--demo" aria-disabled="true">Login</a>
+        <a href="#" class="btn btn--primary btn--demo" aria-disabled="true">Sign Up</a>
+      </div>
     </div>
   </header>
 
   <main class="main-content">
-    <article class="legal-content">
-      <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: June 22, 2026</p>
+    <div class="container">
+      <article class="legal-content">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: June 22, 2026</p>
 
-      <p>ShopWave ("we", "our", or "us") operates a demo e-commerce website. This Privacy Policy explains how we handle information when you visit our site.</p>
+        <p>ShopWave ("we", "our", or "us") operates a demo e-commerce website. This Privacy Policy explains how we handle information when you visit our site.</p>
 
-      <h2>Demo Store Disclaimer</h2>
-      <p>ShopWave is a demonstration website with dummy product data. No real purchases, payments, or order fulfillment take place on this site.</p>
+        <h2>Demo Store Disclaimer</h2>
+        <p>ShopWave is a demonstration website with dummy product data. No real purchases, payments, or order fulfillment take place on this site.</p>
 
-      <h2>Information We Collect</h2>
-      <p>As a static demo site, ShopWave does not require account registration or collect personal information directly. However, standard web hosting services (such as GitHub Pages) may automatically collect:</p>
-      <ul>
-        <li>Browser type and version</li>
-        <li>Pages visited and time spent on pages</li>
-        <li>Referring website addresses</li>
-        <li>General geographic location (country/region level)</li>
-      </ul>
+        <h2>Information We Collect</h2>
+        <p>As a static demo site, ShopWave does not require account registration or collect personal information directly. However, standard web hosting services (such as GitHub Pages) may automatically collect:</p>
+        <ul>
+          <li>Browser type and version</li>
+          <li>Pages visited and time spent on pages</li>
+          <li>Referring website addresses</li>
+          <li>General geographic location (country/region level)</li>
+        </ul>
 
-      <h2>Cookies</h2>
-      <p>ShopWave itself does not set cookies. Third-party services used for hosting or fonts may use cookies or similar technologies. You can control cookie preferences through your browser settings.</p>
+        <h2>Cookies</h2>
+        <p>ShopWave itself does not set cookies. Third-party services used for hosting or fonts may use cookies or similar technologies. You can control cookie preferences through your browser settings.</p>
 
-      <h2>Third-Party Services</h2>
-      <p>Our site loads product images from external image providers (e.g., Unsplash) and fonts from Google Fonts. These services have their own privacy policies governing their data practices.</p>
+        <h2>Third-Party Services</h2>
+        <p>Our site loads product images from external image providers (e.g., Unsplash) and fonts from Google Fonts. These services have their own privacy policies governing their data practices.</p>
 
-      <h2>Data Security</h2>
-      <p>We take reasonable measures to ensure our demo site is served over HTTPS. Since no personal data is actively collected, there is no user data stored by ShopWave.</p>
+        <h2>Data Security</h2>
+        <p>We take reasonable measures to ensure our demo site is served over HTTPS. Since no personal data is actively collected, there is no user data stored by ShopWave.</p>
 
-      <h2>Children's Privacy</h2>
-      <p>Our site is not directed at children under 13, and we do not knowingly collect information from children.</p>
+        <h2>Children's Privacy</h2>
+        <p>Our site is not directed at children under 13, and we do not knowingly collect information from children.</p>
 
-      <h2>Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.</p>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.</p>
 
-      <h2>Contact Us</h2>
-      <p>If you have questions about this Privacy Policy, please contact us at <a href="mailto:privacy@shopwave-demo.example">privacy@shopwave-demo.example</a>.</p>
-    </article>
+        <h2>Contact Us</h2>
+        <p>If you have questions about this Privacy Policy, please contact us at <a href="mailto:privacy@shopwave-demo.example">privacy@shopwave-demo.example</a>.</p>
+      </article>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="site-footer__links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms &amp; Conditions</a>
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-footer__brand">ShopWave</div>
+          <p class="site-footer__desc">A demo store showcasing curated products with timeless appeal. Quality pieces for every corner of your life.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#discovery">Shop</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@shopwave-demo.example">hello@shopwave-demo.example</a></li>
+            <li>Mon – Fri, 9am – 6pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; 2026 ShopWave. All rights reserved.</p>
+        <p class="site-footer__demo">This is a demo store with dummy product data for demonstration purposes only.</p>
+      </div>
     </div>
-    <p>&copy; 2026 ShopWave. All rights reserved.</p>
-    <p class="site-footer__demo">This is a demo store with dummy product data for demonstration purposes only.</p>
   </footer>
+
+  <script src="js/nav.js"></script>
   <script
     src="https://widget.ganes-saas-retail.ewideplus.com/v1/loader.js"
     data-store-id="9ee36a0692de49c38b30f4e443ce3ee8"
