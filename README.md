@@ -2,7 +2,7 @@
 
 A colorful demo e-commerce catalog built with vanilla HTML, CSS, and JavaScript. Products are loaded from a CSV file at runtime — no build step required.
 
-**Live site:** https://YOUR_USERNAME.github.io/shopwave/
+**Live site:** https://didinamarudinn.github.io/shopwave/
 
 ## Features
 
