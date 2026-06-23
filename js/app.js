@@ -43,6 +43,23 @@ const CATEGORY_CARDS = [
 const IMG_FALLBACK =
   "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20600%20600%22%3E%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23f0eeeb%22%2F%3E%3Cg%20fill%3D%22%23c8c1b8%22%3E%3Crect%20x%3D%22220%22%20y%3D%22230%22%20width%3D%22160%22%20height%3D%22120%22%20rx%3D%2212%22%2F%3E%3Ccircle%20cx%3D%22265%22%20cy%3D%22275%22%20r%3D%2216%22%2F%3E%3Cpath%20d%3D%22M225%20340l45-55%2040%2030%2050-50%2055%2075z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22300%22%20y%3D%22400%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20fill%3D%22%237a7368%22%20text-anchor%3D%22middle%22%3EImage%20unavailable%3C%2Ftext%3E%3C%2Fsvg%3E";
 
+function formatPrice(price) {
+  const n = Number(price);
+  if (!Number.isFinite(n)) return "";
+  return "$" + n.toLocaleString("en-US");
+}
+
+function getStockStatus(stock) {
+  const n = Number(stock);
+  if (!Number.isFinite(n) || n <= 0) {
+    return { label: "Sold Out", short: "Sold Out", kind: "out" };
+  }
+  if (n <= 4) {
+    return { label: `Only ${n} left`, short: `Only ${n} left`, kind: "low" };
+  }
+  return { label: "In Stock", short: "In Stock", kind: "in" };
+}
+
 function getFilteredProducts() {
   const filterFn = FILTER_MAP[activeFilter] || FILTER_MAP.all;
   return allProducts.filter((p, i) => {
@@ -159,22 +176,29 @@ function renderProducts(products) {
 
   if (empty) empty.hidden = true;
   grid.innerHTML = products
-    .map(
-      (p) => `
-    <article class="product-card">
+    .map((p) => {
+      const stock = getStockStatus(p.stock);
+      const isOut = stock.kind === "out";
+      const linkLabel = isOut ? "Notify Me" : "View Details";
+      return `
+    <article class="product-card${isOut ? " product-card--out" : ""}">
       <a href="product.html?sku=${encodeURIComponent(p.sku)}" class="product-card__image-wrap">
+        <span class="stock-badge stock-badge--${stock.kind}">${stock.short}</span>
         <img src="${p.product_image}" alt="${p.product_name}" class="product-card__image" loading="lazy" onerror="this.onerror=null;this.src='${IMG_FALLBACK}'">
       </a>
       <p class="product-card__sku">${p.sku}</p>
       <h3 class="product-card__title">
         <a href="product.html?sku=${encodeURIComponent(p.sku)}">${p.product_name}</a>
       </h3>
-      <a href="product.html?sku=${encodeURIComponent(p.sku)}" class="product-card__link">
-        View Details <span aria-hidden="true">→</span>
-      </a>
+      <div class="product-card__footer">
+        <span class="product-card__price">${formatPrice(p.price)}</span>
+        <a href="product.html?sku=${encodeURIComponent(p.sku)}" class="product-card__link">
+          ${linkLabel} <span aria-hidden="true">→</span>
+        </a>
+      </div>
     </article>
-  `
-    )
+  `;
+    })
     .join("");
 }
 
